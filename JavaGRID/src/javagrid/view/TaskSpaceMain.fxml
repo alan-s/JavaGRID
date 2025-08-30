@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="580.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javagrid.controller.TaskSpaceMainController">
+   <children>
+      <Pane layoutX="10.0" layoutY="17.0" prefHeight="71.0" prefWidth="1081.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="11.0" text="Hostname:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="IP Address:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="45.0" text="Primary:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPrimary" layoutX="80.0" layoutY="45.0" text="True" />
+            <Label fx:id="lblIP" layoutX="80.0" layoutY="28.0" text="192.9.100.1" />
+            <Label fx:id="lblHostname" layoutX="80.0" layoutY="11.0" text="Magneto" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Properties">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <TabPane layoutX="10.0" layoutY="96.0" prefHeight="472.0" prefWidth="1081.0" style="-fx-border-color: #000000;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+                  <Tab text="Nodes">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="489.0" prefWidth="1079.0">
+                     <children>
+                        <TreeTableView fx:id="ttvMasters" layoutX="10.0" layoutY="28.0" prefHeight="400.0" prefWidth="520.0">
+                          <columns>
+                            <TreeTableColumn fx:id="ttcMasterNode" editable="false" prefWidth="115.0" resizable="false" text="Node" />
+                              <TreeTableColumn fx:id="ttcMasterIP" editable="false" prefWidth="125.0" text="IP Address" />
+                              <TreeTableColumn fx:id="ttcMasterUUID" editable="false" prefWidth="110.0" text="UUID" />
+                            <TreeTableColumn fx:id="ttcMasterStatus" editable="false" minWidth="0.0" resizable="false" text="Status" />
+                              <TreeTableColumn fx:id="ttcMasterJob" editable="false" prefWidth="90.0" text="Job Status" />
+                          </columns>
+                        </TreeTableView>
+                        <TreeTableView fx:id="ttvWorkers" layoutX="537.0" layoutY="28.0" prefHeight="400.0" prefWidth="530.0">
+                           <columns>
+                              <TreeTableColumn fx:id="ttcWorkerNode" editable="false" prefWidth="115.0" resizable="false" text="Node" />
+                              <TreeTableColumn fx:id="ttcWorkerIP" prefWidth="125.0" text="IP Address" />
+                              <TreeTableColumn fx:id="ttcWorkerUUID" prefWidth="110.0" text="UUID" />
+                              <TreeTableColumn fx:id="ttcWorkerStatus" editable="false" minWidth="0.0" resizable="false" text="Status" />
+                              <TreeTableColumn fx:id="ttcWorkerTasksExec" editable="false" minWidth="0.0" prefWidth="100.0" resizable="false" text="Tasks Executed" />
+                           </columns>
+                        </TreeTableView>
+                        <Label layoutX="11.0" layoutY="10.0" text="Masters:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="538.0" layoutY="10.0" text="Workers:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblMasterCount" layoutX="63.0" layoutY="10.0" text="-" />
+                        <Label fx:id="lblWorkerCount" layoutX="592.0" layoutY="10.0" text="-" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Task Queues">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tvAvailable" layoutX="10.0" layoutY="28.0" prefHeight="400.0" prefWidth="231.0">
+                           <columns>
+                              <TableColumn fx:id="tcTaskIdAvailable" editable="false" prefWidth="100.0" sortable="false" text="Task ID" />
+                              <TableColumn fx:id="tcTaskValueAvailable" editable="false" prefWidth="130.0" text="Range" />
+                           </columns>
+                        </TableView>
+                        <TableView fx:id="tvAcquired" layoutX="250.0" layoutY="28.0" prefHeight="400.0" prefWidth="816.0">
+                           <columns>
+                              <TableColumn fx:id="tcTaskIdAcquired" editable="false" prefWidth="235.0" text="Task ID" />
+                              <TableColumn fx:id="tcTaskValueAcquired" editable="false" prefWidth="150.0" text="Range" />
+                              <TableColumn fx:id="tcWorkerAcquired" editable="false" prefWidth="130.0" text="Worker" />
+                              <TableColumn fx:id="tcStartAcquired" editable="false" prefWidth="100.0" text="Start" />
+                              <TableColumn fx:id="tcDurationAcquired" editable="false" prefWidth="100.0" text="Duration (sec.)" />
+                              <TableColumn fx:id="tcStatusAcquired" editable="false" prefWidth="100.0" text="Status" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="11.0" layoutY="10.0" text="Available:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="251.0" layoutY="10.0" text="Acquired:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblAvailableCount" layoutX="70.0" layoutY="10.0" text="-" />
+                        <Label fx:id="lblAcquiredCount" layoutX="309.0" layoutY="10.0" text="-" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+           <Tab text="Data &amp; Result Spaces">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="tvData" layoutX="10.0" layoutY="28.0" prefHeight="400.0" prefWidth="525.0">
+                           <columns>
+                              <TableColumn fx:id="tcTaskIdData" editable="false" prefWidth="262.0" text="Index" />
+                              <TableColumn fx:id="tcTaskValueData" editable="false" prefWidth="262.0" text="Value" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="11.0" layoutY="10.0" text="Data:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="545.0" layoutY="10.0" text="Result:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TableView fx:id="tvResult" layoutX="544.0" layoutY="28.0" prefHeight="400.0" prefWidth="526.0">
+                           <columns>
+                              <TableColumn fx:id="tcTaskIdResult" editable="false" prefWidth="262.0" text="Index" />
+                              <TableColumn fx:id="tcTaskValueResult" editable="false" prefWidth="262.0" text="Value" />
+                           </columns>
+                        </TableView>
+                        <Label fx:id="lblDataCount" layoutX="44.0" layoutY="10.0" text="-" />
+                        <Label fx:id="lblResultCount" layoutX="587.0" layoutY="10.0" text="-" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>

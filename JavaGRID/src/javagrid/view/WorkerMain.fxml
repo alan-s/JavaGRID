@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="360.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javagrid.controller.WorkerMainController">
+   <children>
+      <Pane layoutX="10.0" layoutY="16.0" prefHeight="68.0" prefWidth="375.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="Hostname:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="IP Address:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblIP" layoutX="82.0" layoutY="28.0" text="192.9.100.1" />
+            <Label fx:id="lblHostname" layoutX="82.0" layoutY="10.0" text="Magneto" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Properties">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUUID" layoutX="243.0" layoutY="10.0" text="abcxyz" />
+            <Label layoutX="200.0" layoutY="10.0" text="UUID:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="96.0" prefHeight="68.0" prefWidth="185.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="IP Address:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTaskSpaceIP" layoutX="78.0" layoutY="10.0" text="192.9.100.1" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="TaskSpace">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="Status:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStatus" layoutX="78.0" layoutY="28.0" text="Disconnected" />
+         </children>
+      </Pane>
+      <TabPane layoutX="10.0" layoutY="174.0" prefHeight="108.0" prefWidth="531.0" style="-fx-border-color: #000000;" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="Configuration">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="125.0" prefWidth="512.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="10.0" text="Security Token:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <PasswordField fx:id="pfToken" layoutX="10.0" layoutY="32.0" />
+                        <Label layoutX="169.0" layoutY="10.0" text="Priority:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="cbPriority" layoutX="169.0" layoutY="32.0" prefWidth="150.0" />
+                        <Button fx:id="btnUpdate" layoutX="364.0" layoutY="32.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="151.0" style="-fx-graphic: url(&quot;/javagrid/resources/diskette.png&quot;);" text="Update &amp; Reconnect" />
+                        <ProgressIndicator fx:id="piJob" layoutX="409.0" layoutY="16.0" prefHeight="50.0" prefWidth="50.0" visible="false" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Pane layoutX="10.0" layoutY="293.0" prefHeight="56.0" prefWidth="531.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Job">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="12.0" text="Job ID:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblJobID" layoutX="60.0" layoutY="12.0" text="-" />
+            <Label layoutX="10.0" layoutY="32.0" text="Status:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCurrent" layoutX="60.0" layoutY="32.0" text="-" />
+         </children>
+      </Pane>
+      <Pane layoutX="390.0" layoutY="16.0" prefHeight="68.0" prefWidth="151.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="CPU:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCPU" layoutX="82.0" layoutY="10.0" text="-" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Heartbeat">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="JVM CPU:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblJVMcpu" layoutX="82.0" layoutY="28.0" text="-" />
+            <Label layoutX="10.0" layoutY="46.0" text="JVM Mem.:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblJVMmem" layoutX="82.0" layoutY="46.0" text="-" />
+         </children>
+      </Pane>
+      <Pane layoutX="391.0" layoutY="96.0" prefHeight="68.0" prefWidth="151.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="Grabbed:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblGrabbed" layoutX="82.0" layoutY="10.0" text="-" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Tasks">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="Returned:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblReturned" layoutX="82.0" layoutY="28.0" text="-" />
+            <Label layoutX="10.0" layoutY="46.0" text="Rate:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRate" layoutX="82.0" layoutY="46.0" text="-" />
+         </children>
+      </Pane>
+      <Pane layoutX="201.0" layoutY="96.0" prefHeight="68.0" prefWidth="185.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="IP Address:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblMasterIP" layoutX="78.0" layoutY="10.0" text="192.9.100.1" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Master">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="Status:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStatusMaster" layoutX="78.0" layoutY="28.0" text="Disconnected" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

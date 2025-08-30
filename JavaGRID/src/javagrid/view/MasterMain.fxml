@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="470.0" prefWidth="570.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javagrid.controller.MasterMainController">
+   <children>
+      <Pane layoutX="10.0" layoutY="16.0" prefHeight="53.0" prefWidth="548.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="Hostname:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="IP Address:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblIP" layoutX="82.0" layoutY="28.0" text="192.9.100.1" />
+            <Label fx:id="lblHostname" layoutX="82.0" layoutY="10.0" text="Magneto" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Properties">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblUUID" layoutX="351.0" layoutY="10.0" text="abcxyz" />
+            <Label layoutX="308.0" layoutY="10.0" text="UUID:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutX="10.0" layoutY="82.0" prefHeight="68.0" prefWidth="270.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="IP Address:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblTaskSpaceIP" layoutX="82.0" layoutY="10.0" text="192.9.100.1" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="TaskSpace">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="Status:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStatus" layoutX="82.0" layoutY="28.0" text="Disconnected" />
+         </children>
+      </Pane>
+      <TabPane fx:id="tpMaster" layoutX="10.0" layoutY="159.0" prefHeight="205.0" prefWidth="548.0" style="-fx-border-color: #000000;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+            <Tab fx:id="tabJob" text="Job">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="204.0" prefWidth="578.0">
+                     <children>
+                        <Label layoutX="10.0" layoutY="14.0" text="Job ID:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfJobID" layoutX="12.0" layoutY="31.0" prefHeight="25.0" prefWidth="207.0" promptText="enter a job ID" />
+                        <Label layoutX="10.0" layoutY="80.0" text="Execution Mode:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="rbAdvanced" layoutX="24.0" layoutY="121.0" mnemonicParsing="false" text="Task Based (advanced)">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="modeToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbSimple" layoutX="24.0" layoutY="102.0" mnemonicParsing="false" selected="true" text="Function Based (simple)" toggleGroup="$modeToggleGroup" />
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+          <Tab fx:id="tabData" text="Data Set">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="205.0" prefWidth="578.0">
+                     <children>
+                        <RadioButton fx:id="rbRuntime" layoutX="24.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="Runtime Generation">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="dataInputToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbInputFile" layoutX="24.0" layoutY="73.0" mnemonicParsing="false" text="Local Disk" toggleGroup="$dataInputToggleGroup" />
+                        <RadioButton fx:id="rbDataSpace" layoutX="24.0" layoutY="55.0" mnemonicParsing="false" text="Data Space" toggleGroup="$dataInputToggleGroup" />
+                        <Label layoutX="10.0" layoutY="14.0" text="Source:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="btnFileOpen" disable="true" layoutX="10.0" layoutY="115.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="16.0" style="-fx-graphic: url(&quot;/javagrid/resources/folder.png&quot;);" />
+                        <Label layoutX="10.0" layoutY="98.0" text="File:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblInputFile" layoutX="44.0" layoutY="98.0" text="-" />
+                        <CheckBox fx:id="cbRange" layoutX="223.0" layoutY="36.0" mnemonicParsing="false" text="Continuation:" />
+                        <TextField fx:id="tfIndexStart" disable="true" layoutX="242.0" layoutY="58.0" promptText="enter an offset" />
+                        <TextField fx:id="tfIndexEnd" disable="true" layoutX="242.0" layoutY="86.0" visible="false" />
+                        <Button fx:id="btnImportSpace" disable="true" layoutX="50.0" layoutY="115.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="16.0" style="-fx-graphic: url(&quot;/javagrid/resources/text_imports.png&quot;);" />
+                        <ProgressIndicator fx:id="piImport" layoutX="90.0" layoutY="117.0" prefHeight="20.0" prefWidth="20.0" visible="false" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab fx:id="tabWorker" text="Worker Config">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="rbResultSpace" layoutX="24.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="Result Space">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="resultOutputToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <RadioButton fx:id="rbDisk" layoutX="24.0" layoutY="55.0" mnemonicParsing="false" text="Local Disk" toggleGroup="$resultOutputToggleGroup" />
+                        <Label layoutX="10.0" layoutY="14.0" text="Result Destination:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Slider fx:id="slPulse" blockIncrement="1.0" layoutX="166.0" layoutY="38.0" majorTickUnit="5.0" max="15.0" minorTickCount="4" prefHeight="38.0" prefWidth="160.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="5.0" />
+                        <Label layoutX="166.0" layoutY="14.0" text="Pulse Interval (sec.):">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblPulse" layoutX="285.0" layoutY="14.0" text="-">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font></Label>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab fx:id="tabAmalgamated" text="Amalgamation &amp; Transfer">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Button fx:id="btnAmalgamatedOpen" layoutX="10.0" layoutY="101.0" mnemonicParsing="false" prefHeight="16.0" prefWidth="16.0" style="-fx-graphic: url(&quot;/javagrid/resources/folder.png&quot;);" />
+                        <Label layoutX="10.0" layoutY="84.0" text="File:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblAmalgamatedFile" layoutX="44.0" layoutY="84.0" text="-" />
+                        <Label layoutX="10.0" layoutY="14.0" text="Destination:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="rbAmalDisk" layoutX="24.0" layoutY="36.0" mnemonicParsing="false" selected="true" text="Local Disk">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="amalgamatedToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <CheckBox fx:id="cbCompressFiles" layoutX="173.0" layoutY="57.0" mnemonicParsing="false" text="Compress Files (gzip)" visible="false">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <CheckBox fx:id="cbCompressStreams" layoutX="173.0" layoutY="36.0" mnemonicParsing="false" text="Use Compressed Streams">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </CheckBox>
+                        <Label layoutX="159.0" layoutY="14.0" text="File Transfer:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab fx:id="tabScheduling" text="Work Management">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <RadioButton fx:id="rbStatic" layoutX="481.0" layoutY="44.0" mnemonicParsing="false" selected="true" text="Static" visible="false">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="algorithmToggleGroup" />
+                           </toggleGroup>
+                        </RadioButton>
+                        <Label layoutX="467.0" layoutY="22.0" text="Algorithm:" visible="false">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <RadioButton fx:id="rbRTS" layoutX="481.0" layoutY="61.0" mnemonicParsing="false" text="RTS" toggleGroup="$algorithmToggleGroup" visible="false" />
+                        <Label layoutX="15.0" layoutY="19.0" text="Granularity:">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="tfGranularity" layoutX="15.0" layoutY="42.0" prefHeight="25.0" prefWidth="135.0" text="0" />
+                        <TextField fx:id="tfTaskTimeout" layoutX="165.0" layoutY="43.0" prefHeight="25.0" prefWidth="135.0" text="30" />
+                        <CheckBox fx:id="cbTaskTimeout" layoutX="165.0" layoutY="19.0" mnemonicParsing="false" text="Task Timeout (sec.):">
+                           <font>
+                              <Font name="System Bold" size="12.0" />
+                           </font>
+                        </CheckBox>
+                     </children></AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+      <Pane layoutX="10.0" layoutY="378.0" prefHeight="80.0" prefWidth="548.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Job">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnExecute" layoutX="282.0" layoutY="42.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-graphic: url(&quot;/javagrid/resources/control_play_blue.png&quot;);" text="Execute" />
+            <Button fx:id="btnPause" disable="true" layoutX="367.0" layoutY="42.0" mnemonicParsing="false" prefWidth="82.0" style="-fx-graphic: url(&quot;/javagrid/resources/control_pause_blue.png&quot;);" text="Pause" />
+            <Button fx:id="btnAbort" disable="true" layoutX="452.0" layoutY="42.0" mnemonicParsing="false" prefWidth="82.0" style="-fx-graphic: url(&quot;/javagrid/resources/control_stop_blue.png&quot;);" text="Abort" />
+            <Label layoutX="10.0" layoutY="12.0" text="Job ID:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblJobID" layoutX="72.0" layoutY="12.0" text="-" />
+            <ProgressBar fx:id="pbProgress" layoutX="72.0" layoutY="50.0" prefWidth="180.0" progress="0.0" />
+            <Label layoutX="10.0" layoutY="50.0" text="Status:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="ivJobOutcome" fitHeight="16.0" fitWidth="16.0" layoutX="258.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true" visible="false">
+               <image>
+                  <Image url="@../../../bin/javagrid/resources/cross.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="10.0" layoutY="30.0" text="Duration:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblStart" layoutX="72.0" layoutY="30.0" text="00:00:00" />
+            <Label fx:id="lblEnd" layoutX="133.0" layoutY="30.0" text="00:00:00" />
+            <Label fx:id="lblDuration3" layoutX="121.0" layoutY="25.0" text="-">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="185.0" layoutY="29.0" prefHeight="17.0" prefWidth="5.0" text=":">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblDur" layoutX="196.0" layoutY="30.0" text="-" />
+         </children>
+      </Pane>
+      <Pane layoutX="288.0" layoutY="82.0" prefHeight="68.0" prefWidth="270.0" style="-fx-border-color: #000000;">
+         <children>
+            <Label layoutX="10.0" layoutY="10.0" text="Recruited:">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRecruited" layoutX="116.0" layoutY="10.0" text="-" />
+            <Label layoutX="14.0" layoutY="-10.0" style="-fx-background-color: #F3F3F3;" text="Workers">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="10.0" layoutY="28.0" text="Total CPU (Mhz):">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblCPU" layoutX="116.0" layoutY="28.0" text="-" />
+            <Label layoutX="10.0" layoutY="46.0" text="Total RAM (MB):">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblRAM" layoutX="116.0" layoutY="46.0" text="-" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
