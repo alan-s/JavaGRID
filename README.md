@@ -4,11 +4,11 @@ JavaGRID is a grid-based re-usable framework which is capable of distributing a 
 
 I completed this work as part of a postgraduate Master's degree at King's College London, accompanied by a paper titled ***"javaGRID - A Grid-Based, Distributed Processing Framework for Embarrassingly Parallel Problems"***.
 
-<img src="images/javagrid_07.png" width="847" height="594"/>
+<img src="images/javagrid_07.png" width="678" height="476"/>
 
 > JavaGRID utilises the Java Platform providing a framework for computing EP problems
 
-<img src="images/javagrid_08.png" width="978" height="655"/>
+<img src="images/javagrid_08.png" width="678" height="454"/>
 
 > At a high-level, JavaGRID applies a master-worker paradigm and a task-queue for scheduling 
 
@@ -59,7 +59,7 @@ I was curious to revist the project, and after fixing deprecated code, I thought
 
 > The TaskSpace Server manages the queue of available tasks, both adding new tasks and keeping track of already assigned ones
 
-<img src="images/javagrid_05.png" width="652" height="597"/>
+<img src="images/javagrid_05.png" width="678" height="620"/>
 
 > The Worker nodes report resourcing metrics for monitoring
 
