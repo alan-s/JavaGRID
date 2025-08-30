@@ -72,11 +72,9 @@ I've included a packaged executible with the necessary libraries. You can always
 
 
 ## Notes
-- Eignface approach to face recognition doesn't necessarily scale as the number of input images grows (especially in the naive appraoch utilised here), hence there is an upper bound of 1000 images for enrollment.  We observe at least a quadratic time-complexity (see table below)
-- The image dimension increases the number of data points for which the covariance matrix needs to be computed, and thus compute time. A default resize dimension of 24x60 is recommended for increasing datasets, which might impact accuracy
-- Eignfaces are notorisuly suspectible to face position, expression, and lighting as a minimum. The best input images are frontfacing, with good lighting, and with the face almost entirly the content of the image
-
-<img src="images/eigenface_recognition_04.png" width="686" height="558"/>
+- Note1
+- Note2
+- Note3
 
 ## Acknowledgements
 - [RMIIO library for large file streaming](https://openhms.sourceforge.io/rmiio/)
