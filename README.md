@@ -67,7 +67,7 @@ I was curious to revist the project, and after fixing deprecated code, I thought
 
 > The TaskSpace can also act as a central repositry for both the input data, for jobs that require it, and where the results from the Worker nodes can be stored before amalgmation
 
-## Running Eigenface Recognition
+## Running JavaGRID
 I've included a packaged executible with the necessary libraries. You can always compile the source yourself.
 
 
