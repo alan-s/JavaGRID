@@ -59,7 +59,7 @@ I was curious to revist the project, and after fixing deprecated code, I thought
 
 > The TaskSpace Server manages the queue of available tasks, both adding new tasks and keeping track of already assigned ones
 
-<img src="images/javagrid_05.png" width="678" height="620"/>
+<img src="images/javagrid_05.png" width="542" height="496"/>
 
 > The Worker nodes report resourcing metrics for monitoring
 
