@@ -68,13 +68,19 @@ I was curious to revist the project, and after fixing deprecated code, I thought
 > The TaskSpace can also act as a central repositry for both the input data, for jobs that require it, and where the results from the Worker nodes can be stored before amalgmation
 
 ## Running JavaGRID
-I've included a packaged executible with the necessary libraries. You can always compile the source yourself.
 
+Assuming you've implemented the functions (*initialise, runtimeGeneration, computation*) in *javagrid.master.job* and (*amalgamateInitialise, amalgamateDataSpace, amalgamateFile*) in *javagrid.master.amalgamate*, then the following sequence is required.
+
+1. Compile everything under */src*
+2. Start *javagrid.taskspace.TaskSpaceMainApp* and *javagrid.master.MasterMainApp* in that order
+3. Configure the Master client to set the job specification, ensuring it matches your selected job functions coded earlier. If using the provided EP examples, this step isn't required as it's loaded from the supplied job spec file
+4. Start *n* clients using *javagrid.worker.WorkerMainApp* as desired
+5. Commence grid computation using the *Execute* button on the Master client
 
 ## Notes
-- Note1
-- Note2
-- Note3
+- Ensure a directory named "jobs" is present in the TaskSpace run directory i.e. *javagrid/taskspace* prior to starting
+- The DataSpace store is an in-memory function, and the upper bounds is dependant on host RAM and JVM memory configuration
+- Computational speed and job runtime is highly dependant on task granularity; adjust this setting (on the Master client) to discover the optimal value for your specefic EP problem
 
 ## Acknowledgements
 - [RMIIO library for large file streaming](https://openhms.sourceforge.io/rmiio/)
